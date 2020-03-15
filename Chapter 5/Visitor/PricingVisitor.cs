@@ -1,4 +1,5 @@
-﻿using Visitor.Composite;
+﻿using Visitor.Component;
+using Visitor.Composite;
 using Visitor.Interfaces;
 using Visitor.Leafs;
 
@@ -10,22 +11,31 @@ namespace Visitor
 
         public void VisitCabinet(Cabinet cabinet)
         {
-            TotalPrice += cabinet.NetPrice;
+            VisitFixedPriceEquipment(cabinet);
         }
 
         public void VisitChassis(Chassis chassis)
         {
-            TotalPrice += chassis.NetPrice;
+            VisitFixedPriceEquipment(chassis);
         }
 
         public void VisitM2SSD(M2SSD m2ssd)
         {
-            TotalPrice += m2ssd.NetPrice;
+            VisitFixedPriceEquipment(m2ssd);
         }
 
         public void VisitRAM(RAM ram)
         {
-            TotalPrice += ram.NetPrice;
+            VisitFixedPriceEquipment(ram);
         }
+
+        #region Helper methods
+
+        public void VisitFixedPriceEquipment(Equipment equipment)
+        {
+            TotalPrice += equipment.NetPrice;
+        }
+
+        #endregion
     }
 }
