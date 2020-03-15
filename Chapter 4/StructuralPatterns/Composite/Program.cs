@@ -15,9 +15,9 @@ namespace Composite
             var ram1 = new RAM("Kingston DDR4 module");
             var ram2 = new RAM("Kingston DDR4 module");
 
-            chassis.Add(m2ssd);
-            chassis.Add(ram1);
-            chassis.Add(ram2);
+            chassis.Add(m2ssd); // Adds $50 to the price.
+            chassis.Add(ram1); // Adds $40 to the price.
+            chassis.Add(ram2); // Adds another $40 to the price.
             cabinet.Add(chassis);
 
             Console.WriteLine($"My dream machine net price is {cabinet.NetPrice} USD.");
